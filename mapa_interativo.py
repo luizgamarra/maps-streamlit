@@ -12,7 +12,8 @@ import os
 # === Dados ===
 df_original = pd.read_excel('Pontos_Concorrencia_Curitiba.xlsx')
 df_coords = pd.read_excel('lat-long.xlsx')
-df_final = df_original.merge(df_coords[['enum', 'lat', 'lon']], left_on='Unnamed: 0', right_on='enum')
+df_final = df_original.merge(df_coords[['enum', 'lat', 'lon']], left_on='numero', right_on='enum')
+
 df_final.dropna(subset=['lat', 'lon'], inplace=True)
 
 # === Cores para fallback
